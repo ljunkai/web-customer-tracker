@@ -73,5 +73,39 @@ public class CustomerDAOImpl implements CustomerDAO {
 		theQuery.executeUpdate();
 		
 	}
+	
+	@Override
+	public List<Customer> searchCustomer(String search) {
+		
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//set to default null
+		Query query = null;
+		
+		//Only search if search is not empty
+		if(search != null && search.trim().length() > 0) {
+			
+			//query from the database with HQL
+			query =
+				currentSession.createQuery("from Customer where lower(lastName) like :theName"
+											+ " or lower(firstName) like :theName", Customer.class);
+			
+			//set query's param
+			query.setParameter("theName", search);
+			
+		} else {
+			
+			//search is empty, so we will retrieve all Customers
+			query = 
+				currentSession.createQuery("from Customer", Customer.class);
+		}
+		
+		//execute query and get result list
+		List<Customer> customerSearchResult = query.getResultList();
+		
+		return customerSearchResult;
+		
+	}
 
 }
