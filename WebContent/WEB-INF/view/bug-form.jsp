@@ -19,7 +19,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>Bug Report</h2>
 		</div>
 	</div>
 	
@@ -44,6 +44,18 @@
 					<tr>
 						<td><label>First Name:</label></td>
 						<td><form:input path="email" /></td>
+					</tr>
+					<tr>
+						<td><label>Status:</label></td>
+						<td>
+							<form:select path="status">  
+       						<form:option value="Open" label="Open"/>  
+					        <form:option value="Pending Verification" label="Pending Verification"/>  
+					        <form:option value="Passed" label="Passed"/>  
+					        <form:option value="Closed" label="Closed"/>
+					        </form:select> 
+						</td>
+					
 					</tr>
 					<tr>
 						<td><label></label></td>

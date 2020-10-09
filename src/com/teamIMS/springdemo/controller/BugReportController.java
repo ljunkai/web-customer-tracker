@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.teamIMS.springdemo.dao.BugReportDAO;
 import com.teamIMS.springdemo.entity.BugReport;
 import com.teamIMS.springdemo.service.CustomerService;
@@ -79,6 +80,7 @@ public class BugReportController {
 		return "redirect:/bugReport/list";
 	}
 	
+	/*
 	@GetMapping("/search")
 	public String searchBugReport(@RequestParam("search") String search,
 									Model theModel) {
@@ -90,6 +92,32 @@ public class BugReportController {
 		theModel.addAttribute("bugReport", bugReportResult);
 		
 		return "bug-reports";
-	}
+	} */
+	
+	@GetMapping("/search")
+	public String searchBugReport(@RequestParam("search") String search,
+									@RequestParam(required=false) String filter,
+									Model theModel) {
+		
+		List<BugReport> bugReportResult = null;
+		
+		if(filter != null) {
+		
+			//search bug reports from the DAO
+			bugReportResult = bugReportDAO.searchBugReport(search, filter);
+		} else {
+			
+			//search bug reports from the DAO
+			bugReportResult = bugReportDAO.searchBugReport(search);
+		}
+		
+		
+		//add search result to bug report
+		theModel.addAttribute("bugReport", bugReportResult);
+		
+		return "bug-reports";
+	} 
+	
+	
 	
 }

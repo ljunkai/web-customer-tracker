@@ -25,6 +25,9 @@ public class BugReport {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="status")
+	private String status;
+	
 	public BugReport() {
 		
 	}
@@ -61,9 +64,18 @@ public class BugReport {
 		this.email = email;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Bug Report [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "BugReport [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", status=" + status + "]";
 	}
 	
 	

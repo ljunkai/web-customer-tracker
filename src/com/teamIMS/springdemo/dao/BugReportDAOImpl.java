@@ -112,5 +112,40 @@ public class BugReportDAOImpl implements BugReportDAO {
 		return bugReportSearchResult;
 		
 	}
+	
+	@Override
+	@Transactional
+	public List<BugReport> searchBugReport(String search, String filter) {
+		
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//set to default null
+		Query query = null;
+		
+		//Only search if search is not empty
+		if(search != null && search.trim().length() > 0) {
+			
+			//query from the database with HQL
+			query =
+				currentSession.createQuery("from BugReport where lower(" + filter + ") = :theSearch"
+											, BugReport.class);
+			
+			//set query's param
+			query.setParameter("theSearch", search);
+			
+		} else {
+			
+			//search is empty, so we will retrieve all Customers
+			query = 
+				currentSession.createQuery("from BugReport", BugReport.class);
+		}
+		
+		//execute query and get result list
+		List<BugReport> bugReportSearchResult = query.getResultList();
+		
+		return bugReportSearchResult;
+		
+	} 
 
 }

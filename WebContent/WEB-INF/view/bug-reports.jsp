@@ -40,6 +40,10 @@
                 Search Bug Report: <input type="text" name="search" />
                 
                 <input type="submit" value="Search" class="add-button" />
+                
+                Status <input type="radio" id="status" name="filter" value="status">
+                First Name <input type="radio" id="firstName" name="filter" value="firstName">
+                
             </form:form>
 			
 		
@@ -49,6 +53,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Status</th>
 					<th>Action</th>	
 				</tr>
 				
@@ -69,6 +74,7 @@
 						<td>${tempBugReports.firstName}</td>
 						<td>${tempBugReports.lastName}</td>
 						<td>${tempBugReports.email}</td>
+						<td>${tempBugReports.status}</td>
 						<td>
 							<!-- display the update link -->
 							<a href="${updateLink}">Update</a>

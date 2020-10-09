@@ -15,4 +15,6 @@ public interface BugReportDAO {
 	public void deleteBugReport(int theId);
 	
 	public List<BugReport> searchBugReport(String search);
+	
+	public List<BugReport> searchBugReport(String search, String filter);
 }
