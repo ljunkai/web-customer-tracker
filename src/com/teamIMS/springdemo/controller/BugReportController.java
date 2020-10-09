@@ -80,13 +80,13 @@ public class BugReportController {
 	}
 	
 	@GetMapping("/search")
-	public String searchCustomers(@RequestParam("search") String search,
+	public String searchBugReport(@RequestParam("search") String search,
 									Model theModel) {
 		
-		//search bug reoprts from the DAO
+		//search bug reports from the DAO
 		List<BugReport> bugReportResult = bugReportDAO.searchBugReport(search);
 		
-		//add search result to Customer
+		//add search result to bug report
 		theModel.addAttribute("bugReport", bugReportResult);
 		
 		return "bug-reports";

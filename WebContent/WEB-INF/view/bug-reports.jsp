@@ -57,7 +57,7 @@
 				
 					<!-- construct an "update" link with bug id -->
 					<c:url var="updateLink" value="/bugReport/showFormForUpdate">
-						<c:param name="bugReportId" value="${tempbugReports.id}" />
+						<c:param name="bugReportId" value="${tempBugReports.id}" />
 					</c:url>	
 						
 					<!-- construct a "delete" link with bug id -->
