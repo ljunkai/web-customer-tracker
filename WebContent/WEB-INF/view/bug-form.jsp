@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>Save Customer</title>
+	<title>Bug Report</title>
 	
 	<link type="text/css"
 		  rel="stylesheet"
@@ -26,9 +26,9 @@
 	<div id="container">
 		<h3>Save Customer</h3>
 		
-		<form:form action="saveCustomer" modelAttribute="customer" method="POST">
+		<form:form action="saveBugReport" modelAttribute="bugReport" method="POST">
 		
-		<!-- need to associate this data with customer id -->
+		<!-- need to associate this data with bug id -->
 		<form:hidden path="id" />
 		
 			<table>
@@ -57,7 +57,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+			<a href="${pageContext.request.contextPath}/bugReport/list">Back to List</a>
 		</p>
 		
 	</div>

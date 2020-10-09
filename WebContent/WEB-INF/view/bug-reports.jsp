@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<title>List Customers</title>
+	<title>Bug Reports</title>
 	
 	<!-- reference our style sheet -->
 	
@@ -20,7 +20,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>Bug Reports</h2>
 		</div>
 	</div>
 	
@@ -28,16 +28,16 @@
 	
 		<div id="content">
 		
-			<!-- put new button: Add Customer  -->
+			<!-- put new button: Add Bug report  -->
 		
-			<input type="button" value="Add Customer"
+			<input type="button" value="Add Bug Report"
 				   onClick="window.location.href='showFormForAdd'; return false;"
 				   class="add-button"
 			/>
 			
 			<!-- add our search form here -->
 			 <form:form action="search" method="GET">
-                Search customer: <input type="text" name="search" />
+                Search Bug Report: <input type="text" name="search" />
                 
                 <input type="submit" value="Search" class="add-button" />
             </form:form>
@@ -52,29 +52,29 @@
 					<th>Action</th>	
 				</tr>
 				
-				<!-- loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${customers}">
+				<!-- loop over and print our bug reports -->
+				<c:forEach var="tempBugReports" items="${bugReport}">
 				
-					<!-- construct an "update" link with customer id -->
-					<c:url var="updateLink" value="/customer/showFormForUpdate">
-						<c:param name="customerId" value="${tempCustomer.id}" />
+					<!-- construct an "update" link with bug id -->
+					<c:url var="updateLink" value="/bugReport/showFormForUpdate">
+						<c:param name="bugReportId" value="${tempbugReports.id}" />
 					</c:url>	
 						
-					<!-- construct a "delete" link with customer id -->
-					<c:url var="deleteLink" value="/customer/delete">
-						<c:param name="customerId" value="${tempCustomer.id}" />
+					<!-- construct a "delete" link with bug id -->
+					<c:url var="deleteLink" value="/bugReport/delete">
+						<c:param name="bugReportId" value="${tempBugReports.id}" />
 					</c:url>
 					
 					<tr>
-						<td>${tempCustomer.firstName}</td>
-						<td>${tempCustomer.lastName}</td>
-						<td>${tempCustomer.email}</td>
+						<td>${tempBugReports.firstName}</td>
+						<td>${tempBugReports.lastName}</td>
+						<td>${tempBugReports.email}</td>
 						<td>
 							<!-- display the update link -->
 							<a href="${updateLink}">Update</a>
 							|
 							<a href="${deleteLink}"
-							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+							   onclick="if (!(confirm('Are you sure you want to delete this bug report?'))) return false">Delete</a>
 						</td>
 					</tr>
 				

@@ -9,73 +9,78 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.teamIMS.springdemo.entity.Customer;
+import com.teamIMS.springdemo.entity.BugReport;
 
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class BugReportDAOImpl implements BugReportDAO {
 
 	//need to inject the session factory
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<Customer> getCustomers() {
+	@Transactional
+	public List<BugReport> getBugReports() {
 		
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//create a query ... sort by last name
-		Query<Customer> theQuery = 
-				currentSession.createQuery("from Customer order by lastName", 
-											Customer.class);
+		Query<BugReport> theQuery = 
+				currentSession.createQuery("from BugReport order by lastName", 
+											BugReport.class);
 		
 		//execute query and get result list
-		List<Customer> customer = theQuery.getResultList();
+		List<BugReport> bugReport = theQuery.getResultList();
 		
 		//return the results
-		return customer;
+		return bugReport;
 	}
 
 	@Override
-	public void saveCustomer(Customer theCustomer) {
+	@Transactional
+	public void saveBugReport(BugReport theBugReport) {
 		
 		//get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//save or update the customer by checking if primary key(id) already exists
-		currentSession.saveOrUpdate(theCustomer);
+		currentSession.saveOrUpdate(theBugReport);
 	}
 
 	@Override
-	public Customer getCustomer(int theId) {
+	@Transactional
+	public BugReport getBugReport(int theId) {
 		
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//retrieve or read from database using the primary key
-		Customer theCustomer = currentSession.get(Customer.class,  theId);
+		BugReport theCustomer = currentSession.get(BugReport.class,  theId);
 		
 		return theCustomer;
 	}
 
 	@Override
-	public void deleteCustomer(int theId) {
+	@Transactional
+	public void deleteBugReport(int theId) {
 		
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//delete from the database using the primary key(id)
 		Query theQuery = 
-				currentSession.createQuery("delete from Customer where id=:customerId");
-		theQuery.setParameter("customerId", theId);
+				currentSession.createQuery("delete from BugReport where id=:bugReportId");
+		theQuery.setParameter("bugReportId", theId);
 		
 		theQuery.executeUpdate();
 		
 	}
 	
 	@Override
-	public List<Customer> searchCustomer(String search) {
+	@Transactional
+	public List<BugReport> searchBugReport(String search) {
 		
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -88,8 +93,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 			
 			//query from the database with HQL
 			query =
-				currentSession.createQuery("from Customer where lower(lastName) like :theName"
-											+ " or lower(firstName) like :theName", Customer.class);
+				currentSession.createQuery("from BugReport where lower(lastName) like :theName"
+											+ " or lower(firstName) like :theName", BugReport.class);
 			
 			//set query's param
 			query.setParameter("theName", search);
@@ -98,13 +103,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 			
 			//search is empty, so we will retrieve all Customers
 			query = 
-				currentSession.createQuery("from Customer", Customer.class);
+				currentSession.createQuery("from BugReport", BugReport.class);
 		}
 		
 		//execute query and get result list
-		List<Customer> customerSearchResult = query.getResultList();
+		List<BugReport> bugReportSearchResult = query.getResultList();
 		
-		return customerSearchResult;
+		return bugReportSearchResult;
 		
 	}
 
