@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.teamIMS.springdemo.entity.BugReport;
+import com.teamIMS.springdemo.entity.BugReportComment;
 
 
 @Repository
@@ -146,6 +147,24 @@ public class BugReportDAOImpl implements BugReportDAO {
 		
 		return bugReportSearchResult;
 		
+	}
+
+	@Override
+	@Transactional
+	public List<BugReportComment> getComments(String reportId) {
+		
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query =
+			currentSession.createQuery("from BugReportComment where bugReportId =:reportId"
+										+ "ORDER BY bugReportId",
+										BugReportComment.class);
+		
+		query.setParameter("reportId", reportId);
+		List<BugReportComment> commentList = query.getResultList();
+		
+		return commentList;
 	} 
 
 }
