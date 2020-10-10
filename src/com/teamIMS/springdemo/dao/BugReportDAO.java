@@ -20,4 +20,6 @@ public interface BugReportDAO {
 	public List<BugReport> searchBugReport(String search, String filter);
 	
 	public List<BugReportComment> getComments(int id);
+
+	public void saveComment(int id, String comment);
 }

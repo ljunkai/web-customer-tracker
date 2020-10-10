@@ -31,6 +31,11 @@ public class BugReportComment {
 		
 	}
 	
+	public BugReportComment(String comment) {
+		
+		this.comment = comment;
+	}
+	
 	public int getId() {
 		return id;
 	}

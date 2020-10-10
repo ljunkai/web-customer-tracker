@@ -1,5 +1,6 @@
 package com.teamIMS.springdemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -89,6 +90,18 @@ public class BugReport {
 	public void setBugReportComments(List<BugReportComment> bugReportComments) {
 		this.bugReportComments = bugReportComments;
 	}
+	
+	//add convenience methods for bi-directional relationship
+	public void add(BugReportComment tempComments) {
+		
+		if(bugReportComments == null) {
+			bugReportComments = new ArrayList<>();
+		}
+		
+		bugReportComments.add(tempComments);
+		tempComments.setBugReport(this);
+	}
+	
 
 	@Override
 	public String toString() {

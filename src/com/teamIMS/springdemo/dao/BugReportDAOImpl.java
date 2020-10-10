@@ -183,6 +183,25 @@ public class BugReportDAOImpl implements BugReportDAO {
 		
 		
 		return commentList;
+	}
+
+	@Override
+	@Transactional
+	public void saveComment(int id, String comment) {
+		
+		//get the current hibernate session
+		Session session = sessionFactory.getCurrentSession();
+		
+		//Retrieve the bug report
+		BugReport tempBugReport = session.get(BugReport.class, id);
+		
+		//Init the bug report comment obj
+		BugReportComment tempBugReportComment = new BugReportComment(comment);
+		
+		//Add to the specified bug report
+		tempBugReport.add(tempBugReportComment);
+		
+		session.save(tempBugReportComment);
 	} 
 
 }

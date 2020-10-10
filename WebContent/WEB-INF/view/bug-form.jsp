@@ -7,6 +7,7 @@
 <head>
 	<title>Bug Report</title>
 	
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link type="text/css"
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/style.css">
@@ -76,15 +77,24 @@
 		<div>
 			<h3>Comments</h3>
 		
+			<!-- Display comments -->
 			<table>
-			<c:forEach var="tempComment" items="${bugReportComment}">
-			
-				<tr>
-					<td>${tempComment.comment}</td>
-				</tr>
-			
-			</c:forEach>
+				<c:forEach var="tempComment" items="${bugReportComment}">
+					<tr>
+						<td class="w3-panel w3-leftbar w3-sand w3-border w3-round-xxlarge">${tempComment.comment}</td>
+					</tr>
+				</c:forEach>
 			</table>
+			
+			<!-- Add comments -->
+			<form action="postComment" method="POST">
+			
+				<input type="hidden" name="bugReportId" value="${bugReport.id}">
+				<textarea name="comment" rows="10" cols="40">Enter comment here...</textarea>
+				
+				<input type="submit" value="Post Comment" />
+			</form>
+			
 		</div>
 		
 	</div>

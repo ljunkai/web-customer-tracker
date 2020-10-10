@@ -124,6 +124,30 @@ public class BugReportController {
 		
 		return "bug-reports";
 	} 
+	
+	@PostMapping("/postComment")
+	public String postComment(@RequestParam("bugReportId") int id,
+								@RequestParam("comment") String comment,
+								Model theModel) {
+		
+		//Call the DAO object to save the comment
+		bugReportDAO.saveComment(id, comment);
+		
+		/** Repeat codes from showUpdateForm to render back the same report Id **/
+		// get the bug report from DAO
+		BugReport theBug = bugReportDAO.getBugReport(id);
+		
+		//get the report's comments
+		List<BugReportComment> bugReportComments = bugReportDAO.getComments(id);
+		
+		//set bug report as a model attribute to pre-populate the form
+		theModel.addAttribute("bugReport", theBug);
+		
+		//set the bug report's comments
+		theModel.addAttribute("bugReportComment", bugReportComments);
+		
+		return "bug-form";
+	}
 
 	
 }
