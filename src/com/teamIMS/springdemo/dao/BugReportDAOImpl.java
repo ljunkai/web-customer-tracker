@@ -1,5 +1,6 @@
 package com.teamIMS.springdemo.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -151,18 +152,35 @@ public class BugReportDAOImpl implements BugReportDAO {
 
 	@Override
 	@Transactional
-	public List<BugReportComment> getComments(String reportId) {
+	public List<BugReportComment> getComments(int id) {
 		
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		Query query =
-			currentSession.createQuery("from BugReportComment where bugReportId =:reportId"
-										+ "ORDER BY bugReportId",
-										BugReportComment.class);
+		/*
+		//get the instructor from db
+		int theId = id;
+		BugReport tempBugReport = currentSession.get(BugReport.class, theId);
 		
-		query.setParameter("reportId", reportId);
-		List<BugReportComment> commentList = query.getResultList();
+		List<Comment> comments = new ArrayList<Comment>();
+		
+		//get course for the instructor
+		List<BugReportComment> commentList = tempBugReport.getBugReportComments();
+		for (int i=0; i < commentList.size(); i++) {
+			
+			comments.add(commentList.get(i));
+		} */
+		
+		//create a query for the report's comments
+		Query<BugReportComment> theQuery = 
+				currentSession.createQuery("from BugReportComment brc where brc.bugReport.id =:reportId", 
+											BugReportComment.class);
+		
+		theQuery.setParameter("reportId", id);
+		
+		//execute query and get result list
+		List<BugReportComment> commentList = theQuery.getResultList();
+		
 		
 		return commentList;
 	} 

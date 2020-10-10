@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html>
@@ -55,7 +56,7 @@
 					        <form:option value="Closed" label="Closed"/>
 					        </form:select> 
 						</td>
-					</tr>
+					</tr>				
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save"/></td>
@@ -70,6 +71,21 @@
 		<p>
 			<a href="${pageContext.request.contextPath}/bugReport/list">Back to List</a>
 		</p>
+		<!-- Comment Systems -->
+		<hr> 
+		<div>
+			<h3>Comments</h3>
+		
+			<table>
+			<c:forEach var="tempComment" items="${bugReportComment}">
+			
+				<tr>
+					<td>${tempComment.comment}</td>
+				</tr>
+			
+			</c:forEach>
+			</table>
+		</div>
 		
 	</div>
 

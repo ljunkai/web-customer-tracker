@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.teamIMS.springdemo.dao.BugReportDAO;
 import com.teamIMS.springdemo.entity.BugReport;
+import com.teamIMS.springdemo.entity.BugReportComment;
 import com.teamIMS.springdemo.service.CustomerService;
 
 @Controller
@@ -28,10 +29,10 @@ public class BugReportController {
 	@RequestMapping("/list")
 	public String listBugReport(Model theModel) {
 		
-		//get customers from the service
+		//get bug reports from the service
 		List<BugReport> bugReports = bugReportDAO.getBugReports();
 		
-		//add the customers to the model
+		//add the bug reports to the model
 		theModel.addAttribute("bugReport", bugReports);
 		
 		return "bug-reports";
@@ -64,8 +65,14 @@ public class BugReportController {
 		// get the bug report from DAO
 		BugReport theBug = bugReportDAO.getBugReport(theId);
 		
+		//get the report's comments
+		List<BugReportComment> bugReportComments = bugReportDAO.getComments(theId);
+		
 		//set bug report as a model attribute to pre-populate the form
 		theModel.addAttribute("bugReport", theBug);
+		
+		//set the bug report's comments
+		theModel.addAttribute("bugReportComment", bugReportComments);
 		
 		//send over to our form
 		return "bug-form";
@@ -117,7 +124,6 @@ public class BugReportController {
 		
 		return "bug-reports";
 	} 
-	
-	
+
 	
 }

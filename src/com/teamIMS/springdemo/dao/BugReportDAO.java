@@ -19,5 +19,5 @@ public interface BugReportDAO {
 	
 	public List<BugReport> searchBugReport(String search, String filter);
 	
-	public List<BugReportComment> getComments(String reportId);
+	public List<BugReportComment> getComments(int id);
 }
