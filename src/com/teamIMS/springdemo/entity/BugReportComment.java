@@ -24,7 +24,7 @@ public class BugReportComment {
 	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 		     CascadeType.REFRESH})
 	@JoinColumn(name="bugReportId")
-	private int bugReportId;
+	private BugReport bugReport;
 
 	
 	public BugReportComment() {
@@ -47,17 +47,17 @@ public class BugReportComment {
 		this.comment = comment;
 	}
 
-	public int getBugReportId() {
-		return bugReportId;
+	public BugReport getBugReport() {
+		return bugReport;
 	}
 
-	public void setBugReportId(int bugReportId) {
-		this.bugReportId = bugReportId;
+	public void setBugReport(BugReport bugReport) {
+		this.bugReport = bugReport;
 	}
 
 	@Override
 	public String toString() {
-		return "bugReportComment [id=" + id + ", comment=" + comment + ", bugReportId=" + bugReportId + "]";
+		return "BugReportComment [id=" + id + ", comment=" + comment + ", bugReport=" + bugReport + "]";
 	}
 	
 }
