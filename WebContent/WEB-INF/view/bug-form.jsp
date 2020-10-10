@@ -24,7 +24,7 @@
 	</div>
 	
 	<div id="container">
-		<h3>Save Customer</h3>
+		<h3>Details of Bug Report</h3>
 		
 		<form:form action="saveBugReport" modelAttribute="bugReport" method="POST">
 		
@@ -55,7 +55,6 @@
 					        <form:option value="Closed" label="Closed"/>
 					        </form:select> 
 						</td>
-					
 					</tr>
 					<tr>
 						<td><label></label></td>

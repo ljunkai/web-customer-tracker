@@ -5,13 +5,18 @@
 <html>
 
 <head>
-	<title>Bug Reports</title>
 	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<!-- reference our style sheet -->
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link type="text/css"
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/style.css" />
+	
+	<title>Bug Reports</title>
 	
 </head>
 
@@ -39,7 +44,7 @@
 			 <form:form action="search" method="GET">
                 Search Bug Report: <input type="text" name="search" />
                 
-                <input type="submit" value="Search" class="add-button" />
+                <input type="submit" value="Search" class="btn btn-primary" />
                 
                 Status <input type="radio" id="status" name="filter" value="status">
                 First Name <input type="radio" id="firstName" name="filter" value="firstName">
