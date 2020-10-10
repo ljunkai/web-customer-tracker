@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="bugReportComment")
-public class bugReportComment {
+public class BugReportComment {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class bugReportComment {
 	private int bugReportId;
 
 	
-	public bugReportComment() {
+	public BugReportComment() {
 		
 	}
 	

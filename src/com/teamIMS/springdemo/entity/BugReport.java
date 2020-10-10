@@ -1,11 +1,16 @@
 package com.teamIMS.springdemo.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="bugReport")
@@ -27,6 +32,11 @@ public class BugReport {
 	
 	@Column(name="status")
 	private String status;
+	
+	@OneToMany(mappedBy="bugReport",
+			cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+				  CascadeType.REFRESH, CascadeType.REMOVE})
+	private List<BugReportComment> bugReportComments;
 	
 	public BugReport() {
 		
@@ -72,11 +82,18 @@ public class BugReport {
 		this.status = status;
 	}
 
+	public List<BugReportComment> getBugReportComments() {
+		return bugReportComments;
+	}
+
+	public void setBugReportComments(List<BugReportComment> bugReportComments) {
+		this.bugReportComments = bugReportComments;
+	}
+
 	@Override
 	public String toString() {
 		return "BugReport [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", status=" + status + "]";
 	}
-	
 	
 }
