@@ -78,13 +78,10 @@
 			<h3>Comments</h3>
 		
 			<!-- Display comments -->
-			<table>
+			
 				<c:forEach var="tempComment" items="${bugReportComment}">
-					<tr>
-						<td class="w3-panel w3-leftbar w3-sand w3-border w3-round-xxlarge">${tempComment.comment}</td>
-					</tr>
-				</c:forEach>
-			</table>
+						<p class="w3-panel w3-yellow w3-topbar w3-bottombar w3-border-amber w3-round-xlarge" style="width:50%">${tempComment.comment}</p>
+				</c:forEach>	
 			
 			<!-- Add comments -->
 			<form action="postComment" method="POST">

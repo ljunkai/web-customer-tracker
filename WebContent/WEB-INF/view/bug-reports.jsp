@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- reference our style sheet -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link type="text/css"
 		  rel="stylesheet"
@@ -23,10 +24,10 @@
 
 <body>
 
-	<div id="wrapper">
-		<div id="header">
-			<h2>Bug Reports</h2>
-		</div>
+	<div id="container" class="w3-container w3-pale-green wrapper">
+		
+		<h2>Bug Reports</h2>
+		
 	</div>
 	
 	<div id="container">
@@ -37,14 +38,14 @@
 		
 			<input type="button" value="Add Bug Report"
 				   onClick="window.location.href='showFormForAdd'; return false;"
-				   class="add-button"
+				   class="w3-button w3-khaki w3-round-large"
 			/>
 			
 			<!-- add our search form here -->
 			 <form:form action="search" method="GET">
                 Search Bug Report: <input type="text" name="search" />
                 
-                <input type="submit" value="Search" class="btn btn-primary" />
+                <input type="submit" value="Search" class="btn btn-primary" style="margin:5px 3px" />
                 
                 Status <input type="radio" id="status" name="filter" value="status">
                 First Name <input type="radio" id="firstName" name="filter" value="firstName">
@@ -53,7 +54,7 @@
 			
 		
 			<!-- add our html table here -->
-			<table>
+			<table class="w3-table w3-hoverable w3-bordered">
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
