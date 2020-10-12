@@ -33,7 +33,7 @@
 		<!-- need to associate this data with bug id -->
 		<form:hidden path="id" />
 		
-			<table>
+			<table style="background:white">
 				<tbody>
 					<tr>
 						<td><label>First Name:</label></td>

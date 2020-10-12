@@ -24,9 +24,9 @@
 
 <body>
 
-	<div id="container" class="w3-container w3-pale-green wrapper">
+	<div id="container" class="w3-container w3-pale-green wrapper w3-bottombar w3-border-red">
 		
-		<h2>Bug Reports</h2>
+		<h2 style="margin:20px 10px">Bug Reports</h2>
 		
 	</div>
 	
@@ -83,7 +83,7 @@
 						<td>${tempBugReports.status}</td>
 						<td>
 							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
+							<a href="${updateLink}">View</a>
 							|
 							<a href="${deleteLink}"
 							   onclick="if (!(confirm('Are you sure you want to delete this bug report?'))) return false">Delete</a>
