@@ -53,8 +53,10 @@
 							<form:select path="status">  
        						<form:option value="Open" label="Open"/>  
 					        <form:option value="Pending Verification" label="Pending Verification"/>  
-					        <form:option value="Passed" label="Passed"/>  
+					        <form:option value="Passed" label="Passed"/>
+					        <c:if test="${bugReport.firstName != NULL}">   
 					        <form:option value="Closed" label="Closed"/>
+					        </c:if>
 					        </form:select> 
 						</td>
 					</tr>				
@@ -72,6 +74,8 @@
 		<p>
 			<a href="${pageContext.request.contextPath}/bugReport/list">Back to List</a>
 		</p>
+		
+		<c:if test="${bugReport.firstName != NULL}"> 
 		<!-- Comment Systems -->
 		<hr> 
 		<div>
@@ -93,7 +97,7 @@
 			</form>
 			
 		</div>
-		
+		</c:if>
 	</div>
 
 </body>
