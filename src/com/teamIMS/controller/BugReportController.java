@@ -1,4 +1,4 @@
-package com.teamIMS.springdemo.controller;
+package com.teamIMS.controller;
 
 import java.util.List;
 
@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-import com.teamIMS.springdemo.dao.BugReportDAO;
-import com.teamIMS.springdemo.entity.BugReport;
-import com.teamIMS.springdemo.entity.BugReportComment;
-import com.teamIMS.springdemo.service.CustomerService;
+import com.teamIMS.dao.BugReportDAO;
+import com.teamIMS.entity.BugReport;
+import com.teamIMS.entity.BugReportComment;
+import com.teamIMS.service.CustomerService;
 
 @Repository
 @Controller
@@ -226,7 +225,7 @@ public class BugReportController {
 			}
 			
 			//execute query and get result list
-			List<BugReport> bugReportSearchResult = query.getResultList();
+			bugReportResult = query.getResultList();
 		}
 		
 		//add search result to bug report

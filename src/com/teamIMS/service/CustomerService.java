@@ -1,8 +1,8 @@
-package com.teamIMS.springdemo.service;
+package com.teamIMS.service;
 
 import java.util.List;
 
-import com.teamIMS.springdemo.entity.BugReport;
+import com.teamIMS.entity.BugReport;
 
 public interface CustomerService {
 

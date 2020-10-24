@@ -1,4 +1,4 @@
-package com.teamIMS.springdemo.entity;
+package com.teamIMS.entity;
 
 import java.util.ArrayList;
 import java.util.List;

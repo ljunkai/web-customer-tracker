@@ -1,9 +1,9 @@
-package com.teamIMS.springdemo.dao;
+package com.teamIMS.dao;
 
 import java.util.List;
 
-import com.teamIMS.springdemo.entity.BugReport;
-import com.teamIMS.springdemo.entity.BugReportComment;
+import com.teamIMS.entity.BugReport;
+import com.teamIMS.entity.BugReportComment;
 
 public interface BugReportDAO {
 

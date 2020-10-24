@@ -1,4 +1,4 @@
-package com.teamIMS.springdemo.service;
+package com.teamIMS.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.teamIMS.springdemo.dao.BugReportDAO;
-import com.teamIMS.springdemo.entity.BugReport;
+import com.teamIMS.dao.BugReportDAO;
+import com.teamIMS.entity.BugReport;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {

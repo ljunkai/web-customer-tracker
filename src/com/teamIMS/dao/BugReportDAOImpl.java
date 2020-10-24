@@ -1,4 +1,4 @@
-package com.teamIMS.springdemo.dao;
+package com.teamIMS.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.teamIMS.springdemo.entity.BugReport;
-import com.teamIMS.springdemo.entity.BugReportComment;
+import com.teamIMS.entity.BugReport;
+import com.teamIMS.entity.BugReportComment;
 
 
 @Repository
