@@ -13,18 +13,20 @@ table {
  
 th {
 	border-bottom:1px solid gray;
-	background:none repeat scroll 0 0 #09c332;
+	background:none repeat scroll 0 0 blue;
 	padding:10px;
 	color: #FFFFFF;
 }
 
 tr {
-	border-top:1px solid gray;
+	border-top:1px solid white;
 	text-align:center;	
 }
- 
+
 tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background: #BBBBBB}	
+ 
+
  
 #wrapper {width: 100%; margin-top: 0px; }
 #header {width: 70%; background: #09c332; margin-top: 0px; padding:15px 0px 15px 15px;}
@@ -44,4 +46,30 @@ tr:nth-child(odd) {background: #BBBBBB}
 	
 	margin-bottom: 15px;
 	background: #cccccc;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
