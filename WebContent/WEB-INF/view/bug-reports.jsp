@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -40,6 +42,23 @@
 				   onClick="window.location.href='showFormForAdd'; return false;"
 				   class="w3-button w3-khaki w3-round-large"
 			/>
+			
+			<!-- display username and login info -->
+			
+			<p>
+				User: <security:authentication property="principal.username" />
+				<br />
+				Role: <security:authentication property="principal.authorities"/>
+			</p>
+			
+			
+			<!-- logout button -->
+			<form:form action="${pageContext.request.contextPath}/logout"
+						method="POST">
+						
+				<input type="submit" value="Logout" />
+				
+			</form:form>
 			
 			<!-- add our search form here -->
 			 <form:form action="search" method="GET">
