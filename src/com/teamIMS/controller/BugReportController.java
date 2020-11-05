@@ -25,10 +25,6 @@ import com.teamIMS.service.CustomerService;
 @Controller
 @RequestMapping("/bugReport")
 public class BugReportController {
-
-	//need to inject bugReport DAO
-	@Autowired
-	private BugReportDAO bugReportDAO;
 	
 	//need to inject the session factory
 	@Autowired
@@ -45,7 +41,7 @@ public class BugReportController {
 		
 		//create a query ... sort by last name
 		Query<BugReport> theQuery = 
-				currentSession.createQuery("from BugReport order by lastName", 
+				currentSession.createQuery("from BugReport order by id", 
 											BugReport.class);
 		
 		//execute query and get result list
@@ -211,11 +207,11 @@ public class BugReportController {
 				
 				//query from the database with HQL
 				query =
-					currentSession.createQuery("from BugReport where lower(lastName) like :theName"
-												+ " or lower(firstName) like :theName", BugReport.class);
+					currentSession.createQuery("from BugReport where lower(title) like :theSearch"
+												+ " or lower(description) like :theSearch", BugReport.class);
 				
 				//set query's param
-				query.setParameter("theName", search);
+				query.setParameter("theSearch", search);
 				
 			} else {
 				
