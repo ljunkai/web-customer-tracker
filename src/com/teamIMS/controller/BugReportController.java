@@ -211,7 +211,7 @@ public class BugReportController {
 												+ " or lower(description) like :search", BugReport.class);
 				
 				//set query's param
-				query.setParameter("search", search);
+				query.setParameter("search", "%"+search+"%");
 				
 			} else {
 				

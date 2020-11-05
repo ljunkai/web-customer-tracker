@@ -66,8 +66,9 @@
                 
                 <input type="submit" value="Search" class="btn btn-primary" style="margin:5px 3px" />
                 
-                Status <input type="radio" id="status" name="filter" value="status">
                 Description <input type="radio" id="description" name="filter" value="description">
+                Status <input type="radio" id="status" name="filter" value="status">
+                
                 
             </form:form>
 			

@@ -41,7 +41,7 @@
 					</tr>
 					<tr>
 						<td><label>Description:</label></td>
-						<td><form:input path="description" /></td>
+						<td><form:textarea path="description" rows="5" columns="40" /></td>
 					</tr>
 					<tr>
 						<td><label>Reported By:</label></td>
