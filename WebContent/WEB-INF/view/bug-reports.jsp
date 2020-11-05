@@ -67,7 +67,7 @@
                 <input type="submit" value="Search" class="btn btn-primary" style="margin:5px 3px" />
                 
                 Status <input type="radio" id="status" name="filter" value="status">
-                First Name <input type="radio" id="firstName" name="filter" value="firstName">
+                Description <input type="radio" id="description" name="filter" value="description">
                 
             </form:form>
 			
@@ -75,10 +75,11 @@
 			<!-- add our html table here -->
 			<table class="w3-table w3-hoverable w3-bordered">
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
+					<th>Title</th>
+					<th>Description</th>
 					<th>Status</th>
+					<th>Reported By</th>
+					<th>Assignee</th>
 					<th>Action</th>	
 				</tr>
 				
@@ -96,10 +97,11 @@
 					</c:url>
 					
 					<tr>
-						<td>${tempBugReports.firstName}</td>
-						<td>${tempBugReports.lastName}</td>
-						<td>${tempBugReports.email}</td>
+						<td>${tempBugReports.title}</td>
+						<td>${tempBugReports.description}</td>
 						<td>${tempBugReports.status}</td>
+						<td>${tempBugReports.reportedBy}</td>
+						<td>${tempBugReports.assignee}</td>
 						<td>
 							<!-- display the update link -->
 							<a href="${updateLink}">View</a>

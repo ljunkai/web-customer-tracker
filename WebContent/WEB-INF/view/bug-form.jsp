@@ -36,25 +36,25 @@
 			<table style="background:white">
 				<tbody>
 					<tr>
-						<td><label>First Name:</label></td>
-						<td><form:input path="firstName" /></td>
+						<td><label>Title:</label></td>
+						<td><form:input path="title" /></td>
 					</tr>
 					<tr>
-						<td><label>First Name:</label></td>
-						<td><form:input path="lastName" /></td>
+						<td><label>Description:</label></td>
+						<td><form:input path="description" /></td>
 					</tr>
 					<tr>
-						<td><label>First Name:</label></td>
-						<td><form:input path="email" /></td>
+						<td><label>Reported By:</label></td>
+						<td><form:input path="reportedBy" /></td>
 					</tr>
 					<tr>
 						<td><label>Status:</label></td>
 						<td>
 							<form:select path="status">  
        						<form:option value="Open" label="Open"/>  
+       						<c:if test="${bugReport.title != NULL}">  
 					        <form:option value="Pending Verification" label="Pending Verification"/>  
-					        <form:option value="Passed" label="Passed"/>
-					        <c:if test="${bugReport.firstName != NULL}">   
+					        <form:option value="Passed" label="Passed"/> 
 					        <form:option value="Closed" label="Closed"/>
 					        </c:if>
 					        </form:select> 
@@ -75,7 +75,7 @@
 			<a href="${pageContext.request.contextPath}/bugReport/list">Back to List</a>
 		</p>
 		
-		<c:if test="${bugReport.firstName != NULL}"> 
+		<c:if test="${bugReport.title != NULL}"> 
 		<!-- Comment Systems -->
 		<hr> 
 		<div>

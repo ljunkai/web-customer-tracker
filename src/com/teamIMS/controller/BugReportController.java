@@ -194,7 +194,7 @@ public class BugReportController {
 			
 			
 			
-		} else {
+		} else { //filter is null
 			
 			//search bug reports from the DAO
 			//bugReportResult = bugReportDAO.searchBugReport(search);
@@ -207,11 +207,11 @@ public class BugReportController {
 				
 				//query from the database with HQL
 				query =
-					currentSession.createQuery("from BugReport where lower(title) like :theSearch"
-												+ " or lower(description) like :theSearch", BugReport.class);
+					currentSession.createQuery("from BugReport where lower(title) like :search"
+												+ " or lower(description) like :search", BugReport.class);
 				
 				//set query's param
-				query.setParameter("theSearch", search);
+				query.setParameter("search", search);
 				
 			} else {
 				
