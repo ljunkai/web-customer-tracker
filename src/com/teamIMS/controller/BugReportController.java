@@ -162,11 +162,6 @@ public class BugReportController {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		if(filter != null) {
-		
-			//search bug reports from the DAO
-			//bugReportResult = bugReportDAO.searchBugReport(search, filter);
-			
-		
 			
 			//set to default null
 			Query query = null;
